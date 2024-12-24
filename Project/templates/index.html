@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loan Prediction</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Loan Prediction App</h1>
+        <form action="/predict" method="post">
+            <div class="form-group">
+                <label for="person_income">Person Income:</label>
+                <input type="number" step="any" id="person_income" name="person_income" required>
+            </div>
+
+            <div class="form-group">
+                <label for="person_home_ownership">Home Ownership (1-3):</label>
+                <input type="number" step="any" id="person_home_ownership" name="person_home_ownership" required>
+            </div>
+
+            <div class="form-group">
+                <label for="person_emp_length">Employment Length:</label>
+                <input type="number" step="any" id="person_emp_length" name="person_emp_length" required>
+            </div>
+
+            <div class="form-group">
+                <label for="loan_grade">Loan Grade (1-5):</label>
+                <input type="number" step="any" id="loan_grade" name="loan_grade" required>
+            </div>
+
+            <div class="form-group">
+                <label for="loan_amnt">Loan Amount:</label>
+                <input type="number" step="any" id="loan_amnt" name="loan_amnt" required>
+            </div>
+
+            <div class="form-group">
+                <label for="loan_percent_income">Loan Percent Income:</label>
+                <input type="number" step="any" id="loan_percent_income" name="loan_percent_income" required>
+            </div>
+
+            <div class="form-group">
+                <label for="cb_person_default_on_file">Default on File (0/1):</label>
+                <input type="number" step="any" id="cb_person_default_on_file" name="cb_person_default_on_file" required>
+            </div>
+
+            <div class="form-group">
+                <label for="model">Choose a Model:</label>
+                <select id="model" name="model">
+                    {% for model in models %}
+                        <option value="{{ model }}">{{ model }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <button type="submit" class="submit-btn">Predict</button>
+        </form>
+    </div>
+</body>
+</html>

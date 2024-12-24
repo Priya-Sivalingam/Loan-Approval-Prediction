@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prediction Result</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Prediction Result</h1>
+        <div class="result">
+            <p><strong>Model:</strong> {{ model_name }}</p>
+            <p><strong>Prediction:</strong> {{ prediction }}</p>
+
+            {% if probability is not none %}
+                <p><strong>Probability of Loan Approval:</strong> {{ probability | round(2) }}%</p>
+            {% endif %}
+        </div>
+        <a href="/" class="back-btn">Make Another Prediction</a>
+    </div>
+</body>
+</html>
